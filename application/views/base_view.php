@@ -55,7 +55,7 @@
                     <li class="topbar-devider"></li>   
                     <li><a href="javascript:void(0);">Help</a></li>  
                     <li class="topbar-devider"></li>   
-                    <li><a href="javascript:void(0);"><!--Login--->-</a></li> 
+                    <li><a href="javascript:void(0);"><!-- Login --->-</a></li> 
                 </ul>
                 <!-- End Topbar Navigation -->
             </div>
@@ -71,8 +71,8 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="fa fa-bars"></span>
                     </button>
-                    <a class="navbar-brand" href="index-2.html">
-                        <img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">
+                    <a class="navbar-brand" href="javascript:void(0);"><h1><span class="color-blue">Sub</span>InglesLyrics</h1>
+                        <!--<img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">-->
                     </a>
                 </div>
 
