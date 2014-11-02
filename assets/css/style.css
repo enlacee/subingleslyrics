@@ -1124,7 +1124,7 @@ a.thumbnail {
 }
 
 .thumbnail-style { 
-	padding: 7px;
+	padding: 0px;
 	margin-bottom: 20px; 
 }
 .thumbnail-style:hover { 
