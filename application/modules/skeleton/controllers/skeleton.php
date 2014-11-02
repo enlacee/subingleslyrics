@@ -40,6 +40,7 @@ class Skeleton extends MY_Controller {
             'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),
             'skeleton_data' => $skeleton_data
         ));
+        
     }
 
     public function _pagelet_sidebar($skeleton_data)

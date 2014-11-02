@@ -1,29 +1,67 @@
-<header class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="<?php echo site_url(); ?>" class="navbar-brand">CodeIgniter Skeleton</a>
+<div class="wrapper">
+    <!--=== Header ===-->    
+    <div class="header">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container">
+                <!-- Topbar Navigation -->
+                <ul class="loginbar pull-right">
+                    <li>
+                        <i class="fa fa-globe"></i>
+                        <a>Languages</a>
+                        <ul class="lenguages">
+                            <li class="active">
+                                <a href="#">English <i class="fa fa-check"></i></a> 
+                            </li>
+                            <li><a href="#">Spanish</a></li>
+                        </ul>
+                    </li>
+                    <li class="topbar-devider"></li>   
+                    <li><a href="javascript:void(0);">Help</a></li>  
+                    <li class="topbar-devider"></li>   
+                    <li><a href="javascript:void(0);"><!-- Login --->-</a></li> 
+                </ul>
+                <!-- End Topbar Navigation -->
+            </div>
         </div>
-        <nav class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="<?php echo site_url(); ?>">Home</a></li>
-                <li><a href="<?php echo site_url('addons'); ?>">Add-ons</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Example <b class="caret"></b>
+        <!-- End Topbar -->
+    
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <a class="navbar-brand" href="javascript:void(0);"><h1><span class="color-blue">Sub</span>InglesLyrics</h1>
+                        <!--<img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">-->
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="<?php echo site_url('todo'); ?>">Todo</a></li>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="#" >Contacts</a></li>
+
+                        <!-- Search Block -->
+                        <li>
+                            <i class="search fa fa-search search-btn"></i>
+                            <div class="search-open">
+                                <div class="input-group animated fadeInDown">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+                                        <button class="btn-u" type="button">Go</button>
+                                    </span>
+                                </div>
+                            </div>    
+                        </li>
+                        <!-- End Search Block -->
                     </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a target="_blank" href="https://github.com/anvoz/CodeIgniter-Skeleton">Github</a></li>
-            </ul>
-        </nav>
+                </div><!--/navbar-collapse-->
+            </div>    
+        </div>            
+        <!-- End Navbar -->
     </div>
-</header>
+    <!--=== End Header ===-->   

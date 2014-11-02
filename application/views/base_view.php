@@ -4,13 +4,15 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
     
 <head>
-    <title>Unify | Welcome...</title>
+    <title><?php echo $title; ?></title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="<?php echo $description; ?>">
+
+    <!-- Extra metadata -->
+    <?php echo $metadata; ?>    
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -26,451 +28,17 @@
     <link rel="stylesheet" href="<?php echo assets_url('plugins/parallax-slider/css/parallax-slider.css'); ?>">
 
     <!-- CSS Theme -->    
-    <link rel="stylesheet" href="assets/css/themes/default.css" id="style_color">
+    <link rel="stylesheet" href="<?php echo assets_url('css/themes/default.css'); ?>" id="style_color">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="<?php echo assets_url('assets/css/custom.css'); ?>">
+    <?php echo $css; ?>
+    
 </head>	
 
 <body>
-
-<div class="wrapper">
-    <!--=== Header ===-->    
-    <div class="header">
-        <!-- Topbar -->
-        <div class="topbar">
-            <div class="container">
-                <!-- Topbar Navigation -->
-                <ul class="loginbar pull-right">
-                    <li>
-                        <i class="fa fa-globe"></i>
-                        <a>Languages</a>
-                        <ul class="lenguages">
-                            <li class="active">
-                                <a href="#">English <i class="fa fa-check"></i></a> 
-                            </li>
-                            <li><a href="#">Spanish</a></li>
-                        </ul>
-                    </li>
-                    <li class="topbar-devider"></li>   
-                    <li><a href="javascript:void(0);">Help</a></li>  
-                    <li class="topbar-devider"></li>   
-                    <li><a href="javascript:void(0);"><!-- Login --->-</a></li> 
-                </ul>
-                <!-- End Topbar Navigation -->
-            </div>
-        </div>
-        <!-- End Topbar -->
-    
-        <!-- Navbar -->
-        <div class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <a class="navbar-brand" href="javascript:void(0);"><h1><span class="color-blue">Sub</span>InglesLyrics</h1>
-                        <!--<img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">-->
-                    </a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-responsive-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class=""><a href="#" >Contacts</a></li>
-
-                        <!-- Search Block -->
-                        <li>
-                            <i class="search fa fa-search search-btn"></i>
-                            <div class="search-open">
-                                <div class="input-group animated fadeInDown">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn">
-                                        <button class="btn-u" type="button">Go</button>
-                                    </span>
-                                </div>
-                            </div>    
-                        </li>
-                        <!-- End Search Block -->
-                    </ul>
-                </div><!--/navbar-collapse-->
-            </div>    
-        </div>            
-        <!-- End Navbar -->
-    </div>
-    <!--=== End Header ===-->    
-
-    <!--=== Content Part ===-->
-    <div class="container content">
-        
-        <!-- init main images-->
-        <div class="headline"><h2>Main videos</h2></div>
-        <div class="row margin-bottom-20">
-            <div class="col-md-4 col-sm-6">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="thumbnail fancybox-button" data-rel="" title="Project Title" href="assets/img/main/4.jpg">
-                            <div class="overflow-hidden">  
-                                <img alt="" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" class="img-responsive">
-                                <span class="zoom-icon"></span>
-                            </div>
-                        </a><a class="btn-more hover-effect" href="#">Keane - the wonders</a>
-                    </div>
-                    <div class="caption red">
-                        <h2><a class="hover-effect" href="#">Project Three - warrior</a></h2>                       
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div> 
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div> 
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div> 
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div> 
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div> 
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            
-        </div>
-        <hr class="margin-bottom-30">
-        <!-- init main images-->        
-
-    	<!-- Recent Works -->
-        <div class="headline"><h2>Recent Works anb</h2></div>
-        <div class="row margin-bottom-20">
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            
-        </div>
-    	<!-- End Recent Works -->
-
-
-        <!-- Recent Works -->
-        <div class="headline"><h2>Recent Works anb</h2></div>
-        <div class="row margin-bottom-20">
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3">
-                <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="hand" href="#">
-                        <div class="overflow-hidden">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                        </div>
-                        </a>
-                        <a class="btn-more hover-effect" href="#">3:01</a>
-                    </div>                    
-                    <h5><a class="hover-effect" href="#">Project Three - warrior</a></h5>                    
-                </div>
-            </div>
-            
-        </div>
-        <!-- End Recent Works -->        
-
-    	<!-- Info Blokcs -->
-    	<div class="row margin-bottom-30">
-            <!-- Latest Shots -->
-            <div class="col-md-4">
-
-    			<div class="headline"><h2>Lastest Shots</h2></div>
-                    <div id="myCarousel" class="carousel slide carousel-v1">
-                        <div class="carousel-inner">
-                            <div class="item easy-block-v2"><div class="easy-bg-v2 rgba-default">New</div>
-                                <img src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                                <div class="carousel-caption">
-                                    <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
-                                </div>
-                            </div>
-                            <div class="item easy-block-v2 active"><div class="easy-bg-v2 rgba-red">New</div>
-                                <img src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                                <div class="carousel-caption">
-                                    <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
-                                </div>
-                                </div>
-                            <div class="item easy-block-v2"><div class="easy-bg-v2 rgba-blue">New</div>
-                                <img src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
-                                <div class="carousel-caption">
-                                    <p>Justo cras odio apibus ac afilisis lingestas de.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="carousel-arrow">
-                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>
-                    </div>
-            </div><!--/col-md-4-->            
-            
-            <!-- Latest Shots -->
-            <div class="col-md-4">
-    			<div class="headline"><h2>Advertising</h2></div>
-
-            </div><!--/col-md-4-->
-                      
-
-            <!-- Latest Shots -->
-            <div class="col-md-4">
-    			<div class="headline"><h2>Monthly Newsletter</h2></div>
-                <div class="input-group margin-bottom-40">
-                    <input type="text" class="form-control" placeholder="Email Address">
-                    <span class="input-group-btn">
-                        <button class="btn-u" type="button">Subscribe</button>
-                    </span>
-                </div>
-                <p><b>Subscribe</b> : We'll send a notice to the email with your videos lyrics.
-                That subscribe is amazing for you, your colleccion complete with sounds favorites.</p>
-            </div><!--/col-md-4-->
-    	</div>	
-    	<!-- End Info Blokcs -->
-    
-        
-    </div><!--/container-->		
-    <!-- End Content Part -->
-    
-
-    <!--=== Copyright ===-->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">                     
-                    <p>
-                        2014 &copy; Unify. ALL Rights Reserved. 
-                        <a href="javascript:void(0);">Privacy Policy</a> | <a href="javascript:void(0);">Terms of Service</a>
-                    </p>
-                </div>
-                <div class="col-md-6">  
-                    <a href="javascript:void(0);">
-                        <img class="pull-right" id="logo-footer" src="assets/img/logo2-default.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </div> 
-    </div><!--/copyright--> 
-    <!--=== End Copyright ===-->
-</div><!--/wrapper-->
+    <?php echo $body; ?>
+    <!-- / -->
 
 <!-- JS Global Compulsory -->			
 <script type="text/javascript" src="<?php echo assets_url('plugins/jquery-1.10.2.min.js'); ?>"></script>
@@ -496,5 +64,18 @@
     <script src="<?php echo assets_url('plugins/html5shiv.js'); ?>"></script>    
 <![endif]-->
 
+    <!-- Extra javascript -->
+    <?php echo $js; ?>
+
+    <?php if ( ! empty($ga_id)): ?><!-- Google Analytics -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','<?php echo $ga_id; ?>');ga('send','pageview');
+    </script>
+    <?php endif; ?><!-- / -->
 </body>
 </html>	
