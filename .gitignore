@@ -11,3 +11,7 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
+
+# proyect configuration
+composer.lock
+*.log

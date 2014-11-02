@@ -201,5 +201,7 @@ if (defined('ENVIRONMENT'))
  */
 require_once BASEPATH.'core/CodeIgniter.php';
 
+include 'bootstrap.php';
+
 /* End of file index.php */
 /* Location: ./index.php */
