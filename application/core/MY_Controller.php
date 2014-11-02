@@ -48,5 +48,14 @@ class Ajax_Controller extends MY_Controller {
     }
 }
 
+/**
+* @author Anibal Copitan
+* -------------- Add file -------------
+* class MY_ControllerCustom
+* Custom Controller for load resources basic by default
+*/
+require APPPATH . 'core/MY_ControllerCustom.php';
+
+
 /* End of file MY_Controller.php */
 /* Location: ./application/core/MY_Controller.php */

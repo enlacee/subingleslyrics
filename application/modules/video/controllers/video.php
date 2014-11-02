@@ -1,25 +1,24 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Video extends MY_Controller {
+//require APPPATH . 'core/MY_ControllerCustom.php';
+
+class Video extends MY_ControllerCustom {
 
     /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     *      http://example.com/index.php/skeleton
-     *  - or -
-     *      http://example.com/index.php/skeleton/index
-     *  - or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/skeleton/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
+     * view presentation
      */
     public function index()
     {
-        echo "index."; die;
+
+        $skeleton_data = '';
+        $this->template->set_title('Video Unify...');
+        $this->template->load_view('index', array(
+            /*'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),
+            'skeleton_data' => $skeleton_data*/
+        ));
+
+        $item = '';
+        $this->load->view('video/video/index', $item);     
     }
 
   

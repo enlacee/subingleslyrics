@@ -9,7 +9,7 @@ class Template {
 
     private $_ci;
 
-    protected $brand_name = 'CodeIgniter Skeleton';
+    protected $brand_name = 'SubInglesLyrics';
     protected $title_separator = ' - ';
     protected $ga_id = FALSE; // UA-XXXXX-X
 
