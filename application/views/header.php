@@ -35,7 +35,7 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="fa fa-bars"></span>
                     </button>
-                    <a class="navbar-brand" href="javascript:void(0);"><h1><span class="color-blue">Sub</span>InglesLyrics</h1>
+                    <a class="navbar-brand" href="javascript:void(0);"><h1><span class="color-blue">Sub</span>InglesLyrics <span class="color-orange">Beta</span></h1>
                         <!--<img id="logo-header" src="assets/img/logo1-default.png" alt="Logo">-->
                     </a>
                 </div>

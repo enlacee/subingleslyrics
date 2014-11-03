@@ -10,10 +10,12 @@ class Video extends MY_ControllerCustom {
      */
     public function index()
     {
+        $this->load->model('video/video_model');
+        
         $data = array();
-        $aside1 = array();
-        $aside2 = array();
-        $aside3 = array();
+        $aside1 = $this->video_model->getDataLast(9);
+        $aside2 = $this->video_model->getDataRandom(6);
+        $aside3 = $this->video_model->getDataSearch(array('lover', 'maria', 'roos', 'love'), 6);
         
         $this->template->set_title('Home');
         $this->template->load_view('video/video/index', array(
@@ -64,7 +66,7 @@ class Video extends MY_ControllerCustom {
     /**
      *  Player 
      */
-    public function view($id)
+    public function view($id = '')
     {
         $data = '-';
         $this->template->set_title('Home');
