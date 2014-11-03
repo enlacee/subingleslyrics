@@ -7,7 +7,7 @@
                 <div class="thumbnails thumbnail-style thumbnail-kenburn">
                     <div class="thumbnail-img">
                         <a class="hand" href="#" title="<?php echo $value['title'] ?>">
-                        <div class="overflow-hidden">
+                        <div class="overflow-hidden product">
                             <img class="img-responsive" src="https://i.ytimg.com/vi/<?php echo $value['id_youtube']?>/hqdefault.jpg" alt="">
                         </div>
                         </a>

@@ -2768,3 +2768,8 @@ img.img-circle {
    -ms-transform: scale(2) rotate(5deg);
    transform: scale(2) rotate(5deg);
 }
+
+ /** add anibal custom **/
+ .product .img-responsive {
+    margin: 0 auto;
+}
