@@ -37,7 +37,7 @@ class MY_ControllerCustom extends MY_Controller {
         $this->template->set_title('');
         $this->template->set_description('descriptions...');
         $this->template->add_js('modules/video/file.js');
-        $this->template->add_css('modules/video/file.css');     
+        $this->template->add_css('modules/video/file.css'); 
     }    
   
     

@@ -11,16 +11,15 @@ class Video extends MY_ControllerCustom {
     public function index()
     {
         $data = array();
-        $dataMostView = array();
-        $dataOne = array();
-        $dataTwo = array();
+        $aside1 = array();
+        $aside2 = array();
+        $aside3 = array();
         
         $this->template->set_title('Home');
         $this->template->load_view('video/video/index', array(
-            'homeMostView' => Modules::run('video/_homeMostView', $dataMostView),
-            'homeOne' => Modules::run('video/_homeListOne', $dataOne),
-            'homeListDos' => Modules::run('video/_homeListTwo', $dataTwo),
-            'homeRandom' => Modules::run('video/_homeListRandom', $dataTwo),            
+            'aside1' => Modules::run('video/_aside1', $aside1),
+            'aside2' => Modules::run('video/_aside2', $aside2),
+            'aside3' => Modules::run('video/_aside3', $aside3),                       
             'data' => $data
         ));
 
@@ -31,9 +30,9 @@ class Video extends MY_ControllerCustom {
      * @param array $data array with a list of videos.
      * @retun View
      */
-    public function _homeMostView($data)
+    public function _aside1($data)
     {
-        $this->load->view('video/video/_homeMostView', array(
+        $this->load->view('video/video/_aside1', array(
             'data' => $data,
         ));
     }
@@ -43,9 +42,9 @@ class Video extends MY_ControllerCustom {
      * @param array $data array with a list of videos.
      * @retun View
      */
-    public function _homeListOne($data)
+    public function _aside2($data)
     {
-        $this->load->view('video/video/_homeListOne', array(
+        $this->load->view('video/video/_aside2', array(
             'data' => $data,
         ));
     }
@@ -55,24 +54,12 @@ class Video extends MY_ControllerCustom {
      * @param array $data array with a list of videos.
      * @retun View
      */
-    public function _homeListTwo($data)
+    public function _aside3($data)
     {
-        $this->load->view('video/video/_homeListTwo', array(
+        $this->load->view('video/video/_aside3', array(
             'data' => $data,
         ));
     }       
-    
-    /**
-     * Method rambo
-     * @param array $data array with a list of videos.
-     * @retun View
-     */
-    public function _homeListRandom($data)
-    {
-        $this->load->view('video/video/_homeListRandom', array(
-            'data' => $data,
-        ));
-    }      
     
     /**
      *  Player 
