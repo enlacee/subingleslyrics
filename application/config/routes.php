@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "skeleton";
+$route['default_controller'] = "video";
 $route['404_override'] = '';
 
 

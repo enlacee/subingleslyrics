@@ -70,7 +70,7 @@ class Video extends MY_ControllerCustom {
     {
         $data = '-';
         $this->template->set_title('Home');
-        $this->template->load_view('video/video/index', array(
+        $this->template->load_view('video/video/view', array(
             /*'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),*/
             'data' => $data
         ));                

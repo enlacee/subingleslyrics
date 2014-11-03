@@ -11,7 +11,7 @@
                             <img class="img-responsive" src="https://i.ytimg.com/vi/<?php echo $value['id_youtube']?>/hqdefault.jpg" alt="">
                         </div>
                         </a>
-                        <a class="btn-more hover-effect" href="#">lvl <?php echo $value['level'] ?>"</a>
+                        <a class="btn-more hover-effect" href="#">lvl <?php echo $value['level'] ?></a>
                     </div>                    
                     <h5><a class="hover-effect" href="#" title="<?php echo $value['title'] ?>"><?php echo truncate_string($value['title'], 14) ?></a></h5>                    
                 </div>
