@@ -13,7 +13,7 @@
     <meta name="author" content="">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="<?php echo assets_url('favicon.ico') ?>">
 
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="<?php echo assets_url('plugins/bootstrap/css/bootstrap.min.css'); ?>">

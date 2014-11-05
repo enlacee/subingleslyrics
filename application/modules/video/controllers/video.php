@@ -4,14 +4,18 @@
 
 class Video extends MY_ControllerCustom {
 
+    public function __construct()
+    {   
+        parent::__construct();
+        $this->load->model('video/video_model');        
+    }
+
     /**
      * view presentation UNIFY
      * @return Void show html main page.
      */
     public function index()
-    {
-        $this->load->model('video/video_model');
-        
+    {        
         $data = array();
         $aside1 = $this->video_model->getDataLast(9);
         $aside2 = $this->video_model->getDataRandom(6);
@@ -66,10 +70,31 @@ class Video extends MY_ControllerCustom {
     /**
      *  Player 
      */
-    public function view($id = '')
+    public function view($stringUrl = '',$idUrlHashids)
     {
-        $data = '-';
-        $this->template->set_title('Home');
+        $data = array();
+        $id = $this->hashids->decode($idUrlHashids);
+        if (isset($id[0])) {
+            $id = $id[0];
+            $data = $this->video_model->getDataId($id);
+        }
+
+        
+        // view
+        if (count($data) > 0) {
+            $this->template->set_title($data['title']);
+            $this->template->set_description($data['title'] . 'SubInglesLyrics beta, videos musica en ingles, mp3');
+
+            $this->template->add_metadata('keyworks',$data['title']);
+            $this->template->add_metadata('og:title', $data['title']);
+            $this->template->add_metadata('og:type', 'website');
+            $this->template->add_metadata('og:image', 'https://i.ytimg.com/vi/'.$data['id_youtube'].'/hqdefault.jpg');
+            $this->template->add_metadata('og:url', "" . site_url());
+        }
+
+        $this->template->add_js('modules/video/videoplayer.js');
+        $this->template->add_css('pages/page_404_error.css');
+        
         $this->template->load_view('video/video/view', array(
             /*'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),*/
             'data' => $data

@@ -17,6 +17,23 @@ class Video_model extends CI_Model {
         $this->load->database();
     }
 
+    /**
+    * Get data of video item.
+    * @return array one item
+    */
+    function getDataId($id)
+    {
+        $keyCache = __CLASS__ .'_'. __FUNCTION__ .'_'. $id;        
+        if (true/*($rs = $this->cache->file->get($keyCache)) == FALSE*/) {
+            $this->db->select()->from($this->_name);
+            $this->db->where('id', $id);           
+            $this->db->limit(1);            
+            $query = $this->db->get();
+            $rs = $query->row_array();            
+            $this->cache->file->save($keyCache, $rs);
+        }
+        return $rs;         
+    }
     /*
     * Get videos GRID ! i dont use by moment
      * return array

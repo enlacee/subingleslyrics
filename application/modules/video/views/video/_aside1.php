@@ -7,7 +7,8 @@
             <div class="col-md-4 col-sm-6">
                 <div class="thumbnails thumbnail-style thumbnail-kenburn">
                     <div class="thumbnail-img">
-                        <a class="thumbnail fancybox-button" data-rel="" title="<?php echo $value['title'] ?>" href="#">
+                        <a class="thumbnail fancybox-button" data-rel="" title="<?php echo $value['title'] ?>" 
+                            href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>">
                             <div class="overflow-hidden product">  
                                 <img alt="" src="https://i.ytimg.com/vi/<?php echo $value['id_youtube'] ?>/hqdefault.jpg" class="img-responsive">
                                 <span class="zoom-icon"></span>
@@ -15,7 +16,10 @@
                         </a><a class="btn-more hover-effect" href="#">lvl <?php echo $value['level'] ?></a>
                     </div>
                     <div class="caption red">
-                        <h2><a class="hover-effect" title="<?php echo $value['title'] ?>" href="#"><?php echo truncate_string($value['title'], 14) ?></a></h2>                       
+                        <h2>
+                            <a class="hover-effect" title="<?php echo $value['title'] ?>" href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>">
+                            <?php echo truncate_string($value['title'], 14) ?></a>
+                        </h2>                       
                     </div>
                 </div>
             </div>            
@@ -23,14 +27,15 @@
             <div class="col-md-2 col-sm-3">
                 <div class="thumbnails thumbnail-style thumbnail-kenburn">
                     <div class="thumbnail-img">
-                        <a class="hand" href="#" title="<?php echo $value['title'] ?>">
+                        <a class="hand" href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>" title="<?php echo $value['title'] ?>">
                         <div class="overflow-hidden product">
                             <img class="img-responsive" src="https://i.ytimg.com/vi/<?php echo $value['id_youtube'] ?>/hqdefault.jpg" alt="">
                         </div>
                         </a>
                         <a class="btn-more hover-effect" href="#">lvl <?php echo $value['level'] ?></a>
                     </div>                    
-                    <h5><a class="hover-effect" href="#" title="<?php echo $value['title'] ?>"><?php echo truncate_string($value['title'], 14) ?></a></h5>                    
+                    <h5><a class="hover-effect" href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>" 
+                        title="<?php echo $value['title'] ?>"><?php echo truncate_string($value['title'], 14) ?></a></h5>                    
                 </div>
             </div> 
             <?php endif; ?>

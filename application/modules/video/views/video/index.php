@@ -7,30 +7,29 @@
         
         <?php echo $aside3 ?>
     	        
-    	<!-- Info Blokcs -->
-    	<div class="row margin-bottom-30">
-            <!-- Latest Shots -->
-            <div class="col-md-4">
+    	<!-- Info Blokcs 
+    	<div class="row margin-bottom-30">           
 
+            <div class="col-md-4">
     			<div class="headline"><h2>Lastest Shots</h2></div>
                     <div id="myCarousel" class="carousel slide carousel-v1">
                         <div class="carousel-inner">
                             <div class="item easy-block-v2"><div class="easy-bg-v2 rgba-default">New</div>
                                 <img src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
                                 <div class="carousel-caption">
-                                    <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
+                                    <p>.</p>
                                 </div>
                             </div>
                             <div class="item easy-block-v2 active"><div class="easy-bg-v2 rgba-red">New</div>
                                 <img src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
                                 <div class="carousel-caption">
-                                    <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
+                                    <p>.</p>
                                 </div>
                                 </div>
                             <div class="item easy-block-v2"><div class="easy-bg-v2 rgba-blue">New</div>
                                 <img src="https://i.ytimg.com/vi/k0qbZttt0lw/hqdefault.jpg" alt="">
                                 <div class="carousel-caption">
-                                    <p>Justo cras odio apibus ac afilisis lingestas de.</p>
+                                    <p>.</p>
                                 </div>
                             </div>
                         </div>
@@ -44,16 +43,14 @@
                             </a>
                         </div>
                     </div>
-            </div><!--/col-md-4-->            
+            </div>           
             
-            <!-- Latest Shots -->
+
             <div class="col-md-4">
     			<div class="headline"><h2>Advertising</h2></div>
 
-            </div><!--/col-md-4-->
-                      
+            </div>                  
 
-            <!-- Latest Shots -->
             <div class="col-md-4">
     			<div class="headline"><h2>Monthly Newsletter</h2></div>
                 <div class="input-group margin-bottom-40">
@@ -64,9 +61,9 @@
                 </div>
                 <p><b>Subscribe</b> : We'll send a notice to the email with your videos lyrics.
                 That subscribe is amazing for you, your colleccion complete with sounds favorites.</p>
-            </div><!--/col-md-4-->
+            </div>
     	</div>	
-    	<!-- End Info Blokcs -->
+        -->
     
         
     </div><!--/container-->		

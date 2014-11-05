@@ -199,9 +199,21 @@ if (defined('ENVIRONMENT'))
  * And away we go...
  *
  */
+
+includeBoostrap();
+
 require_once BASEPATH.'core/CodeIgniter.php';
 
-include 'bootstrap.php';
+
+/**
+* Inclue library composer
+* Before of library helpers and files base CI. 
+* @void 
+*/
+function includeBoostrap()
+{
+	include 'bootstrap.php';
+}
 
 /* End of file index.php */
 /* Location: ./index.php */
