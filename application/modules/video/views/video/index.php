@@ -7,7 +7,7 @@
         
         <?php echo $aside3 ?>
     	        
-    	<!-- Info Blokcs 
+    	 Info Blokcs 
     	<div class="row margin-bottom-30">           
 
             <div class="col-md-4">
@@ -48,10 +48,21 @@
 
             <div class="col-md-4">
     			<div class="headline"><h2>Advertising</h2></div>
-
+                <div class="servive-block rounded-2x servive-block-light">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- ianibal_sidebar-right-1_AdSense3_250x250_as -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:250px;height:250px"
+                         data-ad-client="ca-pub-3077833809453573"
+                         data-ad-slot="4791611016"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
             </div>                  
 
             <div class="col-md-4">
+                <!--
     			<div class="headline"><h2>Monthly Newsletter</h2></div>
                 <div class="input-group margin-bottom-40">
                     <input type="text" class="form-control" placeholder="Email Address">
@@ -61,9 +72,10 @@
                 </div>
                 <p><b>Subscribe</b> : We'll send a notice to the email with your videos lyrics.
                 That subscribe is amazing for you, your colleccion complete with sounds favorites.</p>
+            -->
             </div>
     	</div>	
-        -->
+        
     
         
     </div><!--/container-->		
