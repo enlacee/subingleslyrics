@@ -24,7 +24,7 @@ class Video_model extends CI_Model {
     function getDataId($id)
     {
         $keyCache = __CLASS__ .'_'. __FUNCTION__ .'_'. $id;        
-        if (true/*($rs = $this->cache->file->get($keyCache)) == FALSE*/) {
+        if (($rs = $this->cache->file->get($keyCache)) == FALSE) {
             $this->db->select()->from($this->_name);
             $this->db->where('id', $id);           
             $this->db->limit(1);            

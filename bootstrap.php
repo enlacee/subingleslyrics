@@ -8,7 +8,7 @@
 include "vendor/autoload.php";
 
 // initialize librarys or Tool
-use Monolog\Logger;
+/*use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 // create a log channel
@@ -17,6 +17,7 @@ $log->pushHandler(new StreamHandler('log.log', Logger::WARNING));
 // add records to the log
 $log->addWarning('Foo');
 $log->addError('Bar');
+/*
 
 // init HASHID
 //$hashids = new Hashids\Hashids('this is my salt SubInglesLyrics.com');
