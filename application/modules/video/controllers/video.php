@@ -70,15 +70,20 @@ class Video extends MY_ControllerCustom {
     /**
      *  Player 
      */
-    public function view($stringUrl = '',$idUrlHashids)
+    public function view($url = '')
     {
         $data = array();
-        $id = $this->hashids->decode($idUrlHashids);
+        $idHash = '';
+        
+        if (strlen($url)>= 4) {
+            $idHash = substr($url, strlen($url)-4);
+        }
+        
+        $id = $this->hashids->decode($idHash);
         if (isset($id[0])) {
             $id = $id[0];
             $data = $this->video_model->getDataId($id);
         }
-
         
         // view
         if (count($data) > 0) {
@@ -100,6 +105,17 @@ class Video extends MY_ControllerCustom {
             'data' => $data
         ));                
     }
+    
+    public function test($url='')
+    {
+     //echo __CLASS__ . __FUNCTION__; EXIT; 
+        $id = '';
+        if (strlen($url)>= 4) { // .html
+            $id = substr($url, strlen($url)-4);
+        }
+        echo $url;
+        $this->template->load_view('video/video/test');
+    }    
 
   
 }

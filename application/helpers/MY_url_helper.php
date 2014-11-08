@@ -57,7 +57,7 @@ if ( ! function_exists('generateUrlVideo'))
             
             $strUrl = toAsciiUrl($str);
 
-            $url = 'video/view/' . $strUrl . '/' . $hashids->encode($id);
+            $url = 'video/view/' . $strUrl . '-' . $hashids->encode($id) . '.html';
         }
 
         return base_url($url);

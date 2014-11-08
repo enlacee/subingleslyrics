@@ -40,6 +40,9 @@
 
 $route['default_controller'] = "video";
 $route['404_override'] = '';
+#$route['blog/(.+)\.html'] = "posts/view_post/$1";
+#$route['video/test/(.+)\.html'] = "video/test/$1";
+$route['video/view/(.+)\.html'] = "video/view/$1";
 
 
 /* End of file routes.php */
