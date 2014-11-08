@@ -16,5 +16,5 @@ cron : module
 subingles : controller
 search : function
 
-example
+
 ![cis](http://i61.tinypic.com/2wf4b41.png)
