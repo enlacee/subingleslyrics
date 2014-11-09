@@ -26,8 +26,7 @@ class SubIngles extends MY_Controller {
         // paginador init    
         $offset = 0;
         $limit = 100;
-        $this->db->select()->from($this->tb_video);
-
+        $this->db->from($this->tb_video);
         $count = $this->db->count_all_results();
 
         $total_pages = ($count > 0) ? ceil($count/$limit) : 1; //echo $total_pages; exit;
