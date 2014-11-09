@@ -6,9 +6,8 @@
 class ApiYoutube extends MY_Controller {
     
     public $tb_video = 'ac_videos';
-    public $url = 'https://www.googleapis.com/youtube/v3/videos';
     
-    
+
     public function __construct()
     {   
         parent::__construct();        
@@ -16,15 +15,17 @@ class ApiYoutube extends MY_Controller {
         $this->load->model('video/video_model');
     }
     
-
+    /**
+    * View Cron
+    *
+    * @return view js
+    */
     public function index() 
     {
         // 01 data sql
-        //$this->db->from($this->tb_video);
-        //$count = $this->db->count_all_results();
         $this->db
             ->select('id, id_youtube')  
-            ->limit(10)          
+            //->limit(2)          
             ->from($this->tb_video);
         $query = $this->db->get();
         $rs = $query->result_array();
@@ -39,22 +40,28 @@ class ApiYoutube extends MY_Controller {
         }
         
 
-        // 02 view
-        
+        // 02 view        
         $urlprocess = site_url('cron/apiyoutube/processData');
         $script = <<< JS
         var data = [{$stringId}];
 
-
+        var indice = 0;
 
         function initTimer() {
-            for (var i=0; i < data.length; i++) {
-                console.log(i,data[i].id_youtube);
-                ajaxApiYoutube(data[i].id, data[i].id_youtube);
-                console.log("before");
-                sleepFor(1000)
-                console.log("after");
-            }
+
+            var i = indice;
+
+            setTimeout(function() {
+                               
+                if (data.length != i) {
+                    console.log ('i', i); 
+                    ajaxApiYoutube(data[i].id, data[i].id_youtube); 
+                    initTimer();
+                }
+
+            }, 1000, i);
+
+            indice = i + 1;
         }
 
 
@@ -70,7 +77,7 @@ class ApiYoutube extends MY_Controller {
                 success: function (rs){
                     postData = {id:id, id_youtube:id_youtube, rs:rs}
                     $.post( "{$urlprocess}",postData, function( data ) {
-                      $( "#display" ).append("[echo]| ");
+                      $( "#display" ).append(id+" = "+id_youtube+" | ");
                     });
                 }
             });     
@@ -86,9 +93,8 @@ class ApiYoutube extends MY_Controller {
 
 JS;
 
-        $this->template->add_jsnip($script);
-        
-        $this->template->set_title('Api Youtube : index');
+        $this->template->add_jsnip($script);        
+        $this->template->set_title('Cron - Api Youtube');
         $this->template->load_view('cron/apiyoutube/index.php', array());
 
     }
@@ -99,11 +105,72 @@ JS;
      */
     public function processData()
     {
-        var_dump($_REQUEST); EXIT;
-        $this->input->post();
-        $this->input->get_post();
+        $return = false;
+
+        if ($this->input->post()) {
+            $post = $this->input->post();
+
+            $id = $post['id'];
+            $data = $post['rs'];
+            $status = 1;
+            $metadata = array();
+
+            if (isset($data['pageInfo']['totalResults'])) {
+                if ($data['pageInfo']['totalResults'] == '0') {
+                    $status = 0; // video delete of youtube 
+                } else if ($data['pageInfo']['totalResults'] == '1') {
+                    $status = 1;
+                    $video = $data['items'][0];
+
+                    // snippet
+                    $metadata['id'] = $video['id'];
+                    $metadata['publishedAt'] = $video['snippet']['publishedAt'];
+                    $metadata['title'] = $video['snippet']['title'];
+                    $metadata['description'] = $video['snippet']['description'];
+                    $metadata['channelTitle'] = $video['snippet']['channelTitle'];
+                    $metadata['categoryId'] = $video['snippet']['categoryId'];
+                    // contentDetails
+                    $metadata['duration'] = $video['contentDetails']['duration'];
+                    // status
+                    $metadata['publicStatsViewable'] = $video['status']['publicStatsViewable'];
+                    $status = ($metadata['publicStatsViewable'] == 'true') ? 1 : 0;
+                    // statistics
+                    $metadata['viewCount'] = $video['statistics']['viewCount'];
+                    $metadata['likeCount'] = $video['statistics']['likeCount'];
+                    $metadata['dislikeCount'] = $video['statistics']['dislikeCount'];
+                    $metadata['favoriteCount'] = $video['statistics']['favoriteCount'];
+                    $metadata['commentCount'] = $video['statistics']['commentCount'];
+                    
+                }
+            }
+
+            $return = $this->saveMetaData($id, $metadata, $status);
+            if ($return == true) {
+                echo "success: [$id] = ".$post['id_youtube'];
+            } else {
+                echo "fail: [$id] = ".$post['id_youtube'];
+            }
+
+        } else {
+            echo ".";
+        }
+
     }
 
-    
+    /**
+    * Save metadata in db
+    *
+    * @param $id int  primary key video
+    * @param $data array
+    * @return boolean succes or fail
+    */
+    private function saveMetaData($id, $data, $status)
+    {
+        //SQL
+        $json = (is_array($data) && count($data) > 0) ? json_encode($data) : '';
+        $this->db->where('id', $id);
+        return $this->db->update($this->tb_video, 
+            array('id_youtube_metadata' => $json, 'status' => $status));
+    }
 
 }
