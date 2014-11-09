@@ -49,14 +49,17 @@
                         <!-- Search Block -->
                         <li>
                             <i class="search fa fa-search search-btn"></i>
-                            <div class="search-open">
-                                <div class="input-group animated fadeInDown">
-                                    <input type="text" class="form-control" placeholder="Search">
-                                    <span class="input-group-btn">
-                                        <button class="btn-u" type="button">Go</button>
-                                    </span>
+                            <form action="<?php echo site_url('video/search') ?>">
+                                <div class="search-open">
+                                    <div class="input-group animated fadeInDown">
+                                        <input type="text" class="form-control" placeholder="Search" name="q"
+                                        value="<?php echo isset($_GET['q']) ? $_GET['q'] : '' ?>">
+                                        <span class="input-group-btn">
+                                            <button class="btn-u" type="submit">Go</button>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>    
+                            </form>    
                         </li>
                         <!-- End Search Block -->
                     </ul>

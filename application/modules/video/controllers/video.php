@@ -22,6 +22,21 @@ class Video extends MY_ControllerCustom {
         $aside3 = $this->video_model->getDataSearch(array('lover', 'maria', 'roos', 'love'), 6);
         
         $this->template->set_title('Home');
+        // Google box search 'cse'
+        $script = <<< JS
+  (function() {
+    var cx = '004501394547719902685:cjnwvd3iseg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+JS;
+
+        $this->template->add_jsnip($script);        
         $this->template->load_view('video/video/index', array(
             'aside1' => Modules::run('video/_aside1', $aside1),
             'aside2' => Modules::run('video/_aside2', $aside2),
@@ -98,12 +113,38 @@ class Video extends MY_ControllerCustom {
         }
 
         $this->template->add_js('modules/video/videoplayer.js');
-        $this->template->add_css('pages/page_404_error.css');
-        
+        $this->template->add_js('modules/video/videoplayers.js');
+        $this->template->add_css('pages/page_404_error.css');        
+
         $this->template->load_view('video/video/view', array(
             /*'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),*/
             'data' => $data
-        ));                
+        ));
+    }
+
+    /**
+    *
+    *
+    */
+    public function search()
+    {
+        $this->template->set_title('Search');
+        // Google box search 'cse'
+        $script = <<< JS
+  (function() {
+    var cx = '004501394547719902685:cjnwvd3iseg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+JS;
+
+        $this->template->add_jsnip($script);        
+        $this->template->load_view('video/video/search');
     }
     
     public function test($url='')

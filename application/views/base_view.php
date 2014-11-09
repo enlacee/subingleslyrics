@@ -66,6 +66,8 @@
 
     <!-- Extra javascript -->
     <?php echo $js; ?>
+    <!-- Extra javascript Snip -->
+    <?php echo $jsnip; ?>
 
     <?php if ( ! empty($ga_id)): ?><!-- Google Analytics -->
     <script>

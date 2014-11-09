@@ -40,9 +40,6 @@
                 <!-- End Bordered Funny Boxes -->
 
 
-
-
-
             </div>
             <!-- End Left Sidebar -->
 
@@ -50,16 +47,18 @@
         	<div class="col-md-4">
                 <!-- Social Icons -->
                 <div class="servive-block rounded-2x servive-block-light" style="min-height:290px">
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- enlacee_sidebar-right-1_AdSense1_250x250_as -->
-                    <ins class="adsbygoogle"
-                         style="display:inline-block;width:250px;height:250px"
-                         data-ad-client="ca-pub-3077833809453573"
-                         data-ad-slot="3600452610"></ins>
-                    <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>                	
-                    <!-- banner google -->
+                    <?php if (ENVIRONMENT == 'production'): ?>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- enlacee_sidebar-right-1_AdSense1_250x250_as -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:250px;height:250px"
+                             data-ad-client="ca-pub-3077833809453573"
+                             data-ad-slot="3600452610"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>                	
+                        <!-- banner google -->
+                    <?php endif; ?>
 
                     <div class="clearfix"></div>                
                 </div>

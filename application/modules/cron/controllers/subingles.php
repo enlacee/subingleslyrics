@@ -25,15 +25,16 @@ class SubIngles extends MY_Controller {
         echo "=======================================\n";
         // paginador init    
         $offset = 0;
-        $limit = 250;
+        $limit = 100;
         $this->db->select()->from($this->tb_video);
+
         $count = $this->db->count_all_results();
 
         $total_pages = ($count > 0) ? ceil($count/$limit) : 1; //echo $total_pages; exit;
 
         for ($page = 1; $page <= $total_pages; $page++) {
             $offset = ($limit * $page) - $limit;
-            $queryLimit = "LIMIT $offset,$limit ";
+            $queryLimit = " LIMIT $offset,$limit ";
             $query = "SELECT  id, title FROM {$this->tb_video} " . $queryLimit;
             $stm = $this->db->query($query);
             $result = $stm->result_array();
@@ -43,11 +44,12 @@ class SubIngles extends MY_Controller {
                 $song = $part[0];
                 $artist = $part[1];               
                 
-                $id = $result[$key]['id'];
+                $id = $result[$key]['id'];                
                 $this->searchAndUpdate($id, $artist .' '. $song);
                 echo " [{$id}]  = " . $artist . ' ' . $song ."\n";                
             }
-            sleep(2); // sleep for heavy load in server
+            echo "break (stop request for 5'')\n";
+            sleep(5); // sleep for heavy load in server
         }
         // paginador end
 

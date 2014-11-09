@@ -21,6 +21,7 @@ class Template {
     protected $metadata = array();
 
     protected $js = array();
+    protected $jsnip = array();
     protected $css = array();
 
     function __construct()
@@ -93,6 +94,17 @@ class Template {
     }
 
     /**
+    * Add jscript Snip (litle) (not valid double code)
+    *
+    * @param string $strScript
+    * @return void
+    */
+    public function add_jsnip($strScrip)
+    {   
+        $this->jsnip[] = $strScrip;
+    }
+
+    /**
      * Add css file path
      *
      * @access  public
@@ -158,6 +170,14 @@ class Template {
         }
         $js = implode('', $js);
 
+        // Javascript Snip
+        $jsnip = array();
+        foreach ($this->jsnip as $jsnip_script)
+        {
+            $jsnip[] = '<script type="text/javascript">' . $jsnip_script . '</script>';
+        }
+        $jsnip = implode('', $jsnip);        
+
         // CSS
         $css = array();
         foreach ($this->css as $css_file)
@@ -181,6 +201,7 @@ class Template {
             'description' => $description,
             'metadata' => $metadata,
             'js' => $js,
+            'jsnip' => $jsnip,
             'css' => $css,
             'body' => $body,
             'ga_id' => $this->ga_id,
