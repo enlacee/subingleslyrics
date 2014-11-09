@@ -25,7 +25,7 @@ class ApiYoutube extends MY_Controller {
         // 01 data sql
         $this->db
             ->select('id, id_youtube')  
-            //->limit(2)          
+            //->limit(2)         
             ->from($this->tb_video);
         $query = $this->db->get();
         $rs = $query->result_array();
