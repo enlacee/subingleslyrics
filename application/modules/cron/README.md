@@ -1,34 +1,32 @@
 # Order by relevance CRONS **application/modules/cron/controllers**
 
-01 : 06.subingles.py (SHELL)
+*01 : 06.subingles.py (SHELL)*
+	
+	-- pure scrap reading web (xml) data base
+	pyhon 06.subingles.py
 
-02 : subingles.php   (SHELL)
+*02 : subingles.php   (SHELL)*
+	
+	-- Get videos alternatives : scrap form
+    php /var/www/html/www.subingleslyrics.com/index.php cron subingles index
 
-03 : apiyoutube.php  (VIEW)
+*03 : apiyoutube.php  (VIEW)*
 
     -- (load data api youtube :table:ac_videos)
     http://localhost/www.subingleslyrics.com/cron/apiyoutube/index
 
-04 : apiyoutube2.php (SHELL)
+*04 : apiyoutube2.php (SHELL)*
     
     -- (load data table to other table, of video status = 0) 
     php /var/www/html/www.subingleslyrics.com/index.php cron apiyoutube2 search
 
-05 : apiyoutube1.php (VIEW)
+*05 : apiyoutube1.php (VIEW)*
 
     -- (load data api youtube :table:ac_videos_helper) 
     http://localhost/www.subingleslyrics.com/cron/apiyoutube1/index
 
     
 
-
-
-
-## Execute cron python
-
-Execute cron python for get all data of subingles (videos)
-
-    pyhon 06.subingles.py
 
 
 ## Execute Cron php

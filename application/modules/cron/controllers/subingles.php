@@ -3,7 +3,7 @@
 * 02 : Cron ejecutar by terminal (cli-php)
 * scrap to subingles for get data of videos relation
 *
-* php /var/www/www.subingleslyrics.com/index.php cron subingles search
+* php /var/www/www.subingleslyrics.com/index.php cron subingles index
 *
 */
 class SubIngles extends MY_Controller {
@@ -21,7 +21,7 @@ class SubIngles extends MY_Controller {
      * Function Base to scrap | search
      * @param type $paramSearch
      */
-    public function search()
+    public function index()
     {   
         echo "Ejecute in BASH (Custom for bash)\n";
         echo "\n";
