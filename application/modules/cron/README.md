@@ -41,7 +41,7 @@ install cli php
 execute command en terminal :
 (all data seft sync)
 
-    $ php /var/www/www.subingleslyrics.com/index.php cron subingles search
+    $ php /var/www/www.subingleslyrics.com/index.php cron subingles index
 
 cron : module
 subingles : controller
