@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* 003
+* 03 getter data of API youtube for adding data to database
 *
 */
 class ApiYoutube extends MY_Controller {
@@ -17,19 +17,21 @@ class ApiYoutube extends MY_Controller {
     
     /**
     * View Cron
-    *
+    * NOT paginator Select all data of table
     * @return view js
     */
     public function index() 
     {
         // 01 data sql
+        $this->db->from($this->tb_video);
+        $count = $this->db->count_all_results();        
         $this->db
             ->select('id, id_youtube')  
-            //->limit(2)         
+            ->limit($count) // list unlimited, all data.
             ->from($this->tb_video);
         $query = $this->db->get();
         $rs = $query->result_array();
-        
+
         // 01 format string
         $stringId = '';
         foreach($rs as $key => $value ) {
