@@ -84,16 +84,18 @@ class ApiYoutube2 extends MY_Controller {
 
             $dataJson = json_decode($data['id_youtube_more']); //echo "<pre>"; print_R($dataJson);exit;
             // Unwrap dataJson 'id_youtube_more' IDS
-            foreach ($dataJson as $key => $obj) {
-                # code...                
-                $idata['id_youtube'] = $obj->id;
-                $idata['status'] = '1';
-                $idata['ref_id_origen'] = $data['id'];
+            if (is_array($dataJson) && count($dataJson) > 0) {
+                foreach ($dataJson as $key => $obj) {
+                    # code...                
+                    $idata['id_youtube'] = $obj->id;
+                    $idata['status'] = '1';
+                    $idata['ref_id_origen'] = $data['id'];
 
-                //insert
-                $this->db->insert($this->tb_video_helper, $idata);
-                $this->db->insert_id();
-                echo "[$key] = new record  {$obj->id} \n";
+                    //insert
+                    $this->db->insert($this->tb_video_helper, $idata);
+                    $this->db->insert_id();
+                    echo "[$key] = new record  {$obj->id} \n";
+                }                
             }
         }
 

@@ -133,9 +133,6 @@ JS;
                     $metadata['categoryId'] = $video['snippet']['categoryId'];
                     // contentDetails
                     $metadata['duration'] = $video['contentDetails']['duration'];
-                    // status
-                    $metadata['publicStatsViewable'] = $video['status']['publicStatsViewable'];
-                    $status = ($metadata['publicStatsViewable'] == 'true') ? 1 : 0;
                     // statistics
                     $metadata['viewCount'] = $video['statistics']['viewCount'];
                     $metadata['likeCount'] = $video['statistics']['likeCount'];
