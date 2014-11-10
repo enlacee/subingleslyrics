@@ -1,5 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+*  Cron test
+*
+*
+*/
 class Cron extends MY_Controller {
 
     /**

@@ -1,5 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+* 02 : Cron ejecutar by terminal (cli-php)
+* scrap to subingles for get data of videos relation
+*
+* php /var/www/www.subingleslyrics.com/index.php cron subingles search
+*
+*/
 class SubIngles extends MY_Controller {
     
     public $tb_video = 'ac_videos';

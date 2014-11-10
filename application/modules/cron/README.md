@@ -1,12 +1,45 @@
-### Execute Cron
+# Order by relevance CRONS **application/modules/cron/controllers**
+
+01 : 06.subingles.py (SHELL)
+
+02 : subingles.php   (SHELL)
+
+03 : apiyoutube.php  (VIEW)
+
+    -- (load data api youtube :table:ac_videos)
+    http://localhost/www.subingleslyrics.com/cron/apiyoutube/index
+
+04 : apiyoutube2.php (SHELL)
+    
+    -- (load data table to other table, of video status = 0) 
+    php /var/www/html/www.subingleslyrics.com/index.php cron apiyoutube2 search
+
+05 : apiyoutube1.php (VIEW)
+
+    -- (load data api youtube :table:ac_videos_helper) 
+    http://localhost/www.subingleslyrics.com/cron/apiyoutube1/index
+
+    
 
 
-#### Step 1
+
+
+## Execute cron python
+
+Execute cron python for get all data of subingles (videos)
+
+    pyhon 06.subingles.py
+
+
+## Execute Cron php
+
+
+### Step 1
 
 install cli php
 
 
-### Step 2
+## Step 2
 execute command en terminal :
 (all data seft sync)
 
@@ -17,4 +50,4 @@ subingles : controller
 search : function
 
 
-![cis](http://i61.tinypic.com/2wf4b41.png)
+![image cron](http://i61.tinypic.com/2wf4b41.png)

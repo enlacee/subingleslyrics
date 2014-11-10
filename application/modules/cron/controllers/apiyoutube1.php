@@ -3,9 +3,9 @@
 * 03 getter data of API youtube for adding data to database
 *
 */
-class ApiYoutube extends MY_Controller {
+class ApiYoutube1 extends MY_Controller {
     
-    public $tb_video = 'ac_videos';
+    public $tb_video = 'ac_videos_helper';
     
 
     public function __construct()
@@ -22,6 +22,7 @@ class ApiYoutube extends MY_Controller {
     */
     public function index() 
     {
+
         // 01 data sql
         $this->db->from($this->tb_video);
         $count = $this->db->count_all_results();        
@@ -43,7 +44,7 @@ class ApiYoutube extends MY_Controller {
         
 
         // 02 view        
-        $urlprocess = site_url('cron/apiyoutube/processData');
+        $urlprocess = site_url('cron/apiyoutube1/processData');
         $script = <<< JS
         var data = [{$stringId}];
 
