@@ -7,7 +7,6 @@
         
         <?php echo $aside3 ?>
     	        
-    	 Info Blokcs 
     	<div class="row margin-bottom-30">           
 
             <div class="col-md-4">

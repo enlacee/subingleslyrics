@@ -33,7 +33,8 @@ class MY_ControllerCustom extends MY_Controller {
     {
         $this->load->library('template');        
         $this->load->helper(array(
-            'my_string_helper'
+            'my_string_helper',
+            'my_videotemplate_helper'
         ));
         
         $this->load->driver('cache');

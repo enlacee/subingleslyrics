@@ -72,8 +72,8 @@ def writeLog(message = '*'):
 ####################################################
 # Init App
 ####################################################
-numInit = 0
-numFin = 1000
+numInit = 4415
+numFin = 4430
 listNumber = range(numInit, (numFin+1))
 for indice in listNumber:
     print indice

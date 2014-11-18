@@ -44,7 +44,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="#" >Contacts</a></li>
+                        <li class=""><a href="#" data-toggle="tooltip" title="Contactanos">Contacts</a></li>
 
                         <!-- Search Block -->
                         <li>

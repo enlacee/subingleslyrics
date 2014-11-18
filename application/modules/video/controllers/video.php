@@ -11,43 +11,49 @@ class Video extends MY_ControllerCustom {
     }
 
     /**
-     * view presentation UNIFY
+     * view presentation UNIFY, and integration google search with: (two page main search)
+     * action search is view  the results.
+     * 
      * @return Void show html main page.
      */
     public function index()
-    {        
+    {
+        //$this->load->model('Video_data_model');
+        //$Video = new Video_data_model($idVideo); 
+
         $data = array();
         $aside1 = $this->video_model->getDataLast(9);
-        $aside2 = $this->video_model->getDataRandom(6);
-        $aside3 = $this->video_model->getDataSearch(array('lover', 'maria', 'roos', 'love'), 6);
+        $aside2 = $this->video_model->getDataMoreView(6);
+        //$aside3 = $this->video_model->getDataSearch(array('lover', 'maria', 'roos', 'love'), 6);
+        $aside3 = $this->video_model->getDataLastSync(6);
         
-        $this->template->set_title('Home');
-        // Google box search 'cse'
+        $this->template->add_js('plugins/jquery.lazyload.min.js');
         $script = <<< JS
-  (function() {
-    var cx = '004501394547719902685:cjnwvd3iseg';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-JS;
+    $(function() {
+        /***** 01 Lazy load (laod images) *****/
+        $("img.lazy").lazyload({
+         effect : "fadeIn"
+        });
 
-        $this->template->add_jsnip($script);        
+        /***** 02 ToolTip boostrap *****/
+        $('[data-toggle="tooltip"]').tooltip();
+
+    });
+JS;
+        $this->template->add_jsnip($script);
+
+        $this->template->set_title('Home');
         $this->template->load_view('video/video/index', array(
             'aside1' => Modules::run('video/_aside1', $aside1),
             'aside2' => Modules::run('video/_aside2', $aside2),
             'aside3' => Modules::run('video/_aside3', $aside3),                       
             'data' => $data
         ));
-
     }
     
     /**
      * function for create mostView
+     * 
      * @param array $data array with a list of videos.
      * @retun View
      */
@@ -60,6 +66,7 @@ JS;
     
     /**
      * function for create mostView
+     * 
      * @param array $data array with a list of videos.
      * @retun View
      */
@@ -72,6 +79,7 @@ JS;
     
     /**
      * function for create mostView
+     * 
      * @param array $data array with a list of videos.
      * @retun View
      */
@@ -112,9 +120,9 @@ JS;
             $this->template->add_metadata('og:url', "" . site_url());
         }
 
-        $this->template->add_js('modules/video/videoplayer.js');
-        $this->template->add_js('modules/video/videoplayers.js');
-        $this->template->add_css('pages/page_404_error.css');        
+        $this->template->add_js('js/modules/video/videoplayer.js');
+        $this->template->add_js('js/modules/video/videoplayers.js');
+        $this->template->add_css('css/pages/page_404_error.css');        
 
         $this->template->load_view('video/video/view', array(
             /*'pagelet_sidebar' => Modules::run('skeleton/_pagelet_sidebar', $skeleton_data),*/
@@ -123,8 +131,9 @@ JS;
     }
 
     /**
+    * Google search integration (two pages 'page result')
     *
-    *
+    * @return  
     */
     public function search()
     {
@@ -147,6 +156,11 @@ JS;
         $this->template->load_view('video/video/search');
     }
     
+    /**
+     * Test
+     *  
+     * @param type $url
+     */
     public function test($url='')
     {
      //echo __CLASS__ . __FUNCTION__; EXIT; 
@@ -156,10 +170,5 @@ JS;
         }
         echo $url;
         $this->template->load_view('video/video/test');
-    }    
-
-  
+    }  
 }
-
-/* End of file skeleton.php */
-/* Location: ./application/modules/skeleton/controllers/skeleton.php */

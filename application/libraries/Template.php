@@ -166,7 +166,7 @@ class Template {
         $js = array();
         foreach ($this->js as $js_file)
         {
-            $js[] = '<script src="' . assets_url('js/' . $js_file) . '"></script>';
+            $js[] = '<script src="' . assets_url($js_file) . '"></script>';
         }
         $js = implode('', $js);
 
@@ -174,7 +174,7 @@ class Template {
         $jsnip = array();
         foreach ($this->jsnip as $jsnip_script)
         {
-            $jsnip[] = '<script type="text/javascript">' . $jsnip_script . '</script>';
+            $jsnip[] = '<script type="text/javascript" charset="utf-8">' . $jsnip_script . '</script>';
         }
         $jsnip = implode('', $jsnip);        
 
@@ -182,7 +182,7 @@ class Template {
         $css = array();
         foreach ($this->css as $css_file)
         {
-            $css[] = '<link rel="stylesheet" href="' . assets_url('css/' . $css_file) . '">';
+            $css[] = '<link rel="stylesheet" href="' . assets_url($css_file) . '">';
         }
         $css = implode('', $css);
 

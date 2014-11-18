@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="<?php echo assets_url('css/themes/default.css'); ?>" id="style_color">
 
     <!-- CSS Customization -->
-    <link rel="stylesheet" href="<?php echo assets_url('assets/css/custom.css'); ?>">
+    <link rel="stylesheet" href="<?php echo assets_url('css/custom.css'); ?>">
     <?php echo $css; ?>
     
 </head>	

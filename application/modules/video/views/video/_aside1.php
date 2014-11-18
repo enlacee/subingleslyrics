@@ -1,24 +1,34 @@
         <?php if (count($data) > 0): ?>
         <!-- init main images-->
-        <div class="headline"><h2>Main videos</h2></div>
+
+
+
+
+        <div class="headline">
+            <h2 data-toggle="tooltip" title="Videos Principales">Main videos</h2>
+        </div>
         <?php foreach ($data as $key => $value): ?>
         <?php if($key == 0): ?>
         <div class="row margin-bottom-20">
             <div class="col-md-4 col-sm-6">
                 <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
-                        <a class="thumbnail fancybox-button" data-rel="" title="<?php echo $value['title'] ?>" 
+                    <div class="easy-block-v1">
+                        <div class="easy-block-v1-badge">
+                            <?php  echo vtLevelDescription($value['level']) ?>
+                        </div>
+                        <a class="" data-rel="" title="<?php echo $value['title'] ?>" 
                             href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>">
-                            <div class="overflow-hidden product">  
-                                <img alt="" src="https://i.ytimg.com/vi/<?php echo $value['id_youtube'] ?>/hqdefault.jpg" class="img-responsive">
-                                <span class="zoom-icon"></span>
+                            <div class="overflow-hidden product">                                
+                                <img class="lazy img-responsive" 
+                                data-original="https://i.ytimg.com/vi/<?php echo $value['id_youtube'] ?>/hqdefault.jpg">
                             </div>
-                        </a><a class="btn-more hover-effect" href="#">lvl <?php echo $value['level'] ?></a>
+                        </a>
+                        <!--<a class="btn-more hover-effect" href="#">lbl</a>-->
                     </div>
-                    <div class="caption red">
-                        <h2>
+                    <div>
+                        <h2 class="sil-lockup-title">
                             <a class="hover-effect" title="<?php echo $value['title'] ?>" href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>">
-                            <?php echo truncate_string($value['title'], 14) ?></a>
+                            <?php echo truncate_string($value['title'], 40) ?></a>
                         </h2>                       
                     </div>
                 </div>
@@ -26,16 +36,22 @@
             <?php else: ?>
             <div class="col-md-2 col-sm-3">
                 <div class="thumbnails thumbnail-style thumbnail-kenburn">
-                    <div class="thumbnail-img">
+                    <div class="easy-block-v1">
+                        <div class="easy-block-v1-badge">
+                            <?php echo vtLevelDescription($value['level']) ?>
+                        </div>
                         <a class="hand" href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>" title="<?php echo $value['title'] ?>">
                         <div class="overflow-hidden product">
-                            <img class="img-responsive" src="https://i.ytimg.com/vi/<?php echo $value['id_youtube'] ?>/hqdefault.jpg" alt="">
+                            <img class="lazy img-responsive" 
+                                data-original="https://i.ytimg.com/vi/<?php echo $value['id_youtube'] ?>/hqdefault.jpg">
                         </div>
                         </a>
-                        <a class="btn-more hover-effect" href="#">lvl <?php echo $value['level'] ?></a>
+                        <!--<a class="btn-more hover-effect" href="#">lbl</a>-->
                     </div>                    
-                    <h5><a class="hover-effect" href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>" 
-                        title="<?php echo $value['title'] ?>"><?php echo truncate_string($value['title'], 14) ?></a></h5>                    
+                    <h5 class="sil-lockup-title">
+                        <a class="hover-effect" href="<?php echo generateUrlVideo($value['title'], $value['id']) ?>" 
+                        title="<?php echo $value['title'] ?>"><?php echo truncate_string($value['title'], 35) ?></a>
+                    </h5>                    
                 </div>
             </div> 
             <?php endif; ?>

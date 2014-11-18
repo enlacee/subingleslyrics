@@ -25,7 +25,7 @@ class Video_model extends CI_Model {
     {
         $keyCache = __CLASS__ .'_'. __FUNCTION__ .'_'. $id;        
         if (($rs = $this->cache->file->get($keyCache)) == FALSE) {
-            $this->db->select()->from($this->_name);
+            $this->db->select()->from($this->_name);            
             $this->db->where('id', $id);           
             $this->db->limit(1);            
             $query = $this->db->get();
@@ -78,6 +78,50 @@ class Video_model extends CI_Model {
         return $rs;
     }
     
+
+    /**
+     * Get data video more views in youtube
+     * @param type $limit
+     * @return type
+     */
+    public function getDataMoreView($limit = 5)
+    {
+        $date = date('Y_m_d');
+        
+        $keyCache = __CLASS__ .'_'. __FUNCTION__ .'_'. $date;        
+        if (($rs = $this->cache->file->get($keyCache)) == FALSE) {
+            $this->db->select();
+            $this->db->from($this->_name);
+            $this->db->where('status','1');
+            $this->db->limit($limit);
+            $this->db->order_by('id_youtube_view','desc');
+            $query = $this->db->get();
+            $rs = $query->result_array();            
+            $this->cache->file->save($keyCache, $rs);
+        }
+        return $rs;        
+    }
+
+
+
+    public function getDataLastSync($limit = 5)
+    {
+        $date = date('Y_m_d');
+        
+        $keyCache = __CLASS__ .'_'. __FUNCTION__ .'_'. $date;        
+        if (($rs = $this->cache->file->get($keyCache)) == FALSE) {
+            $this->db->select();
+            $this->db->from($this->_name);
+            $this->db->where('status','1');            
+            $this->db->limit($limit);
+            $this->db->order_by('updated','desc');
+            $query = $this->db->get();
+            $rs = $query->result_array();            
+            $this->cache->file->save($keyCache, $rs);
+        }
+        return $rs;        
+    }
+
     /**
      * Return data desc.
      * @param type $limit
@@ -91,6 +135,7 @@ class Video_model extends CI_Model {
         if (($rs = $this->cache->file->get($keyCache)) == FALSE) {
             $this->db->select();
             $this->db->from($this->_name);
+            $this->db->where('status','1');
             $this->db->limit($limit);
             $this->db->order_by('id','desc');
             $query = $this->db->get();
@@ -113,6 +158,7 @@ class Video_model extends CI_Model {
         if (($rs = $this->cache->file->get($keyCache)) == FALSE) {
             $this->db->select();
             $this->db->from($this->_name);
+            $this->db->where('status','1');
             $this->db->limit($limit);
             $this->db->order_by('id','asc');
             $query = $this->db->get();
@@ -137,6 +183,7 @@ class Video_model extends CI_Model {
             $stringSearch = $array[rand(0, count($array)-1)];
             $this->db->select();
             $this->db->from($this->_name);
+            $this->db->where('status','1');
             $this->db->like('title', $stringSearch);
             $this->db->limit($limit);
             $this->db->order_by('id','desc');

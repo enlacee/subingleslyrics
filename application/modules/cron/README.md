@@ -3,7 +3,7 @@
 *01 : 06.subingles.py (SHELL)*
 	
 	-- pure scrap reading web (xml) data base
-	pyhon 06.subingles.py
+	python 06.subingles.py
 
 *02 : subingles.php   (SHELL)*
 	
@@ -24,8 +24,12 @@
 
     -- (load data api youtube :table:ac_videos_helper) 
     http://localhost/www.subingleslyrics.com/cron/apiyoutube1/index
-
     
+*06 : cron06.php (SHELL)*
+    
+    -- update id_youtube_view (number of views)
+    php /var/www/html/www.subingleslyrics.com/index.php cron cron06 index
+
 
 
 

@@ -12,7 +12,7 @@ class Cron extends MY_Controller {
     public function cron()
     {   
         //set POST variables
-
+    	echo __FILE__ . " \n<BR> ";
         echo __CLASS__; EXIT;
         
     }
