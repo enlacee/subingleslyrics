@@ -5,10 +5,10 @@
 	-- pure scrap reading web (xml) data base
 	python 06.subingles.py
 
-*03 : apiyoutube.php  (VIEW)*
+*03 : cron05.php  (VIEW)*
 
     -- (load data api youtube :table:ac_videos)
-    http://localhost/www.subingleslyrics.com/cron/apiyoutube/index
+    http://localhost/www.subingleslyrics.com/cron/cron05/index
 
 *06 : cron06.php (SHELL)*
     

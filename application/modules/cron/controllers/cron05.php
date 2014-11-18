@@ -3,13 +3,13 @@
 * 03 getter data of API youtube for adding data to database
 *
 */
-class ApiYoutube extends MY_Controller {
+class Cron05 extends MY_Controller {
     
     public $tb_video = 'ac_videos';
     
 
     public function __construct()
-    {   
+    {
         parent::__construct();        
         $this->load->library('template');
         $this->load->model('video/video_model');
@@ -26,7 +26,8 @@ class ApiYoutube extends MY_Controller {
         $this->db->from($this->tb_video);
         $count = $this->db->count_all_results();        
         $this->db
-            ->select('id, id_youtube')  
+            ->select('id, id_youtube')
+            ->where('id_youtube_metadata','')  
             ->limit($count) // list unlimited, all data.
             ->from($this->tb_video);
         $query = $this->db->get();
@@ -43,7 +44,7 @@ class ApiYoutube extends MY_Controller {
         
 
         // 02 view        
-        $urlprocess = site_url('cron/apiyoutube/processData');
+        $urlprocess = site_url('cron/cron05/processData');
         $script = <<< JS
         var data = [{$stringId}];
 
@@ -128,8 +129,8 @@ JS;
                     $metadata['id'] = $video['id'];
                     $metadata['publishedAt'] = $video['snippet']['publishedAt'];
                     $metadata['title'] = $video['snippet']['title'];
-                    $metadata['description'] = $video['snippet']['description'];
-                    $metadata['channelTitle'] = $video['snippet']['channelTitle'];
+                    //$metadata['description'] = $video['snippet']['description'];
+                    //$metadata['channelTitle'] = $video['snippet']['channelTitle'];
                     $metadata['categoryId'] = $video['snippet']['categoryId'];
                     // contentDetails
                     $metadata['duration'] = $video['contentDetails']['duration'];

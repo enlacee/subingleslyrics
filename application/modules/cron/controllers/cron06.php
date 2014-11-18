@@ -25,7 +25,8 @@ class Cron06 extends MY_Controller {
         echo "            EJECUTION SHELL            \n";
         echo "=======================================\n";        
         echo " = Description :                       \n";
-        echo " * Update database local (views)       \n";      
+        echo " * Update database local               \n";
+        echo " * setting number views                \n";      
         echo "=======================================\n";
         sleep(3);
 

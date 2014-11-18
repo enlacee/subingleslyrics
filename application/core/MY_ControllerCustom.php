@@ -48,14 +48,15 @@ class MY_ControllerCustom extends MY_Controller {
     private function loadDesignUnify()
     {   
         $this->template->set_title('');
-        $this->template->set_description('SubInglesLyrics beta, videos musica en ingles, musica mp3');
-        //$this->template->add_js('modules/video/file.js');
-        //$this->template->add_css('modules/video/file.css');
+        $description = 'Aprender ingles de una manera visual, escuchando y viendo frases comunes'
+          .' videos sonidos letras lyrics, musica en ingles subtitulada';
+        $this->template->set_description($description);
         
-        $this->template->add_metadata('keyworks', 'SubInglesLyrics, SIL, videos eningles, subtitulado, letra lyrics, lyricas');
-        $this->template->add_metadata('og:title', 'SubInglesLyrics');
+        $this->template->add_metadata('keyworks', 'aprender, ingles, letras, lyrics, video, subtitulado');
+        $this->template->add_metadata('og:title', 'Aprender ingles con videos subtitulados');
+        $this->template->add_metadata('og:description', $description);        
         $this->template->add_metadata('og:type', 'website');
-        $this->template->add_metadata('og:image', '');
+        $this->template->add_metadata('og:image', assets_url('favicon.ico'));
         $this->template->add_metadata('og:url', site_url());
         $this->template->add_metadata('og:site_name:', 'SubInglesLyrics');
     }    
