@@ -48,7 +48,6 @@ class Video_data_model extends CI_Model {
     {
         $keyCache = __CLASS__ .'_'. __FUNCTION__ .'_'. $id;        
         if (($rs = $this->cache->file->get($keyCache)) == FALSE) {
-            //$selectStr = 'id, id_youtube, id_youtube_more, id_youtube_metadata'; 
             $this->db->select()->from($this->_name);
             $this->db->where('id', $id);
             if (empty($status)) {

@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
 * 03 valid videos SHELL
+* Create new tabla and insert data with api youtube
 *
 */
 class ApiYoutube2 extends MY_Controller {

@@ -5,26 +5,11 @@
 	-- pure scrap reading web (xml) data base
 	python 06.subingles.py
 
-*02 : subingles.php   (SHELL)*
-	
-	-- Get videos alternatives : scrap form
-    php /var/www/html/www.subingleslyrics.com/index.php cron subingles index
-
 *03 : apiyoutube.php  (VIEW)*
 
     -- (load data api youtube :table:ac_videos)
     http://localhost/www.subingleslyrics.com/cron/apiyoutube/index
 
-*04 : apiyoutube2.php (SHELL)*
-    
-    -- (load data table to other table, of video status = 0) 
-    php /var/www/html/www.subingleslyrics.com/index.php cron apiyoutube2 search
-
-*05 : apiyoutube1.php (VIEW)*
-
-    -- (load data api youtube :table:ac_videos_helper) 
-    http://localhost/www.subingleslyrics.com/cron/apiyoutube1/index
-    
 *06 : cron06.php (SHELL)*
     
     -- update id_youtube_view (number of views)
