@@ -16,9 +16,9 @@ class Template {
     protected $layout = 'default';
 
     protected $title = FALSE;
-    protected $description = FALSE;
-
+    
     protected $metadata = array();
+    private $stacksMetaData = array(); // just useful so var
 
     protected $js = array();
     protected $jsnip = array();
@@ -54,31 +54,44 @@ class Template {
     }
 
     /**
-     * Set page description
-     *
-     * @access  public
-     * @param   string  $description
-     * @return  void
-     */
-    public function set_description($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
      * Add metadata
      *
      * @access  public
      * @param   string  $name
      * @param   string  $content
+     * @param   string or boolean $position (setting position by stacks)
      * @return  void
      */
-    public function add_metadata($name, $content)
+    public function add_metadata($name, $content, $position = 'asc')
     {
         $name = htmlspecialchars(strip_tags($name));
         $content = htmlspecialchars(strip_tags($content));
 
-        $this->metadata[$name] = $content;
+        if ($name == 'description'
+            || $name == 'keyworks' 
+            || $name == 'og:title'
+            || $name == 'og:description')
+        {
+            $this->metadata[$name] = '';
+            $stacks = $this->stacksMetaData;
+            $stacks[$name][] = $content;
+
+            // first add -> first seen
+            if ($position == 'asc') {
+                for ($i = 0; $i < count($stacks[$name]); $i++) {                    
+                    $this->metadata[$name] .= empty($stacks[$name][$i]) ? '' : $stacks[$name][$i] .' ';
+                }
+            } else if ($position == 'desc' || $position == false) { // fisrt add -> last seen
+                for ($i = count($stacks[$name])-1; $i >= 0; $i--) {
+                    $this->metadata[$name] .= empty($stacks[$name][$i]) ? '' : $stacks[$name][$i] . ' ';
+                }
+            }
+            $this->metadata[$name] = trim($this->metadata[$name]);    
+            $this->stacksMetaData = $stacks;
+
+        } else {
+            $this->metadata[$name] = $content;
+        }
     }
 
     /**
@@ -144,9 +157,6 @@ class Template {
             $title = $this->title . $this->title_separator . $this->brand_name;
         }
 
-        // Description
-        $description = $this->description;
-
         // Metadata
         $metadata = array();
         foreach ($this->metadata as $name => $content)
@@ -197,8 +207,7 @@ class Template {
         ), TRUE);
 
         return $this->_ci->load->view('base_view', array(
-            'title' => $title,
-            'description' => $description,
+            'title' => $title,            
             'metadata' => $metadata,
             'js' => $js,
             'jsnip' => $jsnip,

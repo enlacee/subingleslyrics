@@ -111,10 +111,11 @@ JS;
         // view
         if (count($data) > 0) {
             $this->template->set_title($data['title']);
-            $this->template->set_description($data['title'] . 'SubInglesLyrics beta, videos musica en ingles, mp3');
 
-            $this->template->add_metadata('keyworks',$data['title']);
-            $this->template->add_metadata('og:title', $data['title']);
+            $this->template->add_metadata('description', $data['title'], false);            
+            $this->template->add_metadata('keyworks', $data['title'].',', false);
+            $this->template->add_metadata('og:title', $data['title'], false);
+            $this->template->add_metadata('og:description', $data['title'], false);            
             $this->template->add_metadata('og:type', 'website');
             $this->template->add_metadata('og:image', 'https://i.ytimg.com/vi/'.$data['id_youtube'].'/hqdefault.jpg');
             $this->template->add_metadata('og:url', "" . site_url());
